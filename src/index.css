@@ -35,6 +35,12 @@ li {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  align-items: center;
+}
+
+li *{
+  display: flex;
+  align-items: center;
 }
 
 ul {
@@ -68,6 +74,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
 
 @media (prefers-color-scheme: light) {
   :root {

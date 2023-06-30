@@ -22,7 +22,7 @@ export default function App() {
 
   return (<>
     <Header/>
-    <InputForm setTodos = {setTodos} setIsCompletedOnlyChecked={setIsCompletedOnlyChecked}/>
+    <InputForm todos={todos} setTodos = {setTodos} setIsCompletedOnlyChecked={setIsCompletedOnlyChecked} isCompletedOnlyChecked={isCompletedOnlyChecked}/>
     <TodoList todos={todos} setTodos={setTodos} isCompletedOnlyChecked={isCompletedOnlyChecked}/>
   </>)
 }

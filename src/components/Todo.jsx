@@ -35,7 +35,7 @@ function Todo({ todo, todos, setTodos }) {
   return <li className="todo-li">
     <label>
         <input onClick={() => toggleTodo(todo.text, todo.id, todo.completed)} type="checkbox" defaultChecked={todo.completed} />
-        <EditableText todo={todo} isBeingEdited={isBeingEdited} setIsBeingEdited={setIsBeingEdited}/>
+        <EditableText todo={todo} isBeingEdited={isBeingEdited} setIsBeingEdited={setIsBeingEdited} setTodos={setTodos} todos={todos}/>
     </label>
     <div>
       <button id="edit" className='btn btn-danger' onClick={() => editTodo()}>Edit</button>

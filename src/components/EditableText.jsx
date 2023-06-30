@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-export default function EditableText({todo, isBeingEdited, setIsBeingEdited}) {
+export default function EditableText({todo, isBeingEdited, setIsBeingEdited, setTodos, todos}) {
 
     const [editedText, setEditedText] = useState(todo.text)
 
@@ -14,7 +14,19 @@ export default function EditableText({todo, isBeingEdited, setIsBeingEdited}) {
             "https://localhost:44367/todos/" + id,
             requestOptions
           )
-          // .then(setIsBeingEdited(false))
+          .then(() => setTodos(todos.map(
+            todo => {
+                if (todo.id !== id) {
+                  return todo;
+                } else {
+                  return {
+                    ...todo,
+                    text: editedText,
+                  };
+                }
+              }
+          )))
+          .then(() => setIsBeingEdited(false))
     }
 
     if (isBeingEdited === false) {
@@ -24,7 +36,7 @@ export default function EditableText({todo, isBeingEdited, setIsBeingEdited}) {
     } else {
         return <>
         <input type="text" defaultValue={todo.text} onChange={(e) => setEditedText(e.target.value)}/>
-        <button onClick={saveChanges(todo.id)}>Save</button>
+        <button onClick={() => saveChanges(todo.id)}>Save</button>
         <button>Discard</button>
         </>
     }
