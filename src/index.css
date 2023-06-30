@@ -26,7 +26,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -35,6 +35,14 @@ li {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+}
+
+ul {
+  min-width: 480px;
+}
+
+label {
+  max-width: 200px;
 }
 
 h1 {

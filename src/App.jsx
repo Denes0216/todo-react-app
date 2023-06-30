@@ -6,6 +6,7 @@ import Header from './components/Header'
 
 export default function App() {
   const [todos, setTodos] = useState([])
+  const [isCompletedOnlyChecked, setIsCompletedOnlyChecked] = useState(false)
 
   useEffect(() => {
     const dataFetch = async () => {
@@ -14,15 +15,14 @@ export default function App() {
           "https://localhost:44367/todos"
         )
       ).json();
-
       setTodos(data);
     };
     dataFetch();
   }, []);
 
-  return <>
+  return (<>
     <Header/>
-    <InputForm setTodos = {setTodos}/>
-    <TodoList todos={todos} setTodos={setTodos}/>
-  </>
+    <InputForm setTodos = {setTodos} setIsCompletedOnlyChecked={setIsCompletedOnlyChecked}/>
+    <TodoList todos={todos} setTodos={setTodos} isCompletedOnlyChecked={isCompletedOnlyChecked}/>
+  </>)
 }
