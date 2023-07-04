@@ -15,7 +15,18 @@ function Todo({ todo, todos, setTodos }) {
       "https://localhost:44367/todos/" + id,
       requestOptions
     )
-  }
+    .then(setTodos(todos.map(
+      todo => {
+          if (todo.id !== id) {
+            return todo;
+          } else {
+            return {
+              ...todo,
+              completed: !todo.completed,
+            };
+          }
+        })))
+  };
 
   function deleteTodo(id) {
     const requestOptions = {

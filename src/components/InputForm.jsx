@@ -32,7 +32,7 @@ function InputForm({ setTodos, setIsCompletedOnlyChecked }) {
     return <form className='new-todo-form' onSubmit={handleSubmit}>
         <div className="completed">
             <label htmlFor="show-completed" >Show completed only</label>
-            <input type="checkbox" id="show-completed" onChange={() => setIsCompletedOnlyChecked(prevstate => !prevstate)} />
+            <input type="checkbox" id="show-completed" onChange={() =>setIsCompletedOnlyChecked(prevstate => !prevstate)} />
         </div>
         <input
             type="text"

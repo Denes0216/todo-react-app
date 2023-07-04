@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import InputForm from './components/InputForm'
-import TodoList from './components/TodoList'
+import TodoList from './components/todos/TodoList'
 import Header from './components/Header'
 
 export default function App() {
